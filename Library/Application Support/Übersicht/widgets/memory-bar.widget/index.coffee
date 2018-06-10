@@ -4,113 +4,96 @@ refreshFrequency: 2000
 
 style: """
   // Change bar height
-  bar-height = 6px
+  bar-height = 8px
 
   // Align contents left or right
   widget-align = left
 
   // Position this where you want
-  top 10px
-  left 10px
+  top 0
+  left 400px
 
   // Statistics text settings
   color #fff
   font-family Helvetica Neue
-  background rgba(#000, .5)
-  padding 10px 10px 15px
-  border-radius 5px
+  background transparent
+  padding 0
 
   .container
     width: 300px
-    text-align: widget-align
+    height: 22px;
     position: relative
-    clear: both
-
-  .widget-title
-    text-align: widget-align
-
-  .stats-container
-    margin-bottom 5px
-    border-collapse collapse
-
-  td
-    font-size: 14px
-    font-weight: 300
-    color: rgba(#fff, .9)
-    text-shadow: 0 1px 0px rgba(#000, .7)
+    display: flex;
+    flex-direction: row;
+    justify-content: auto;
+    align-items: center;
+    font-size: 10px;
     text-align: widget-align
 
   .widget-title
-    font-size 10px
-    text-transform uppercase
-    font-weight bold
-
-  .label
-    font-size 8px
-    text-transform uppercase
-    font-weight bold
+    text-align: widget-align
+    text-transform: uppercase
+    font-size: 10px
+    font-weight: bold
+    color: #fff
+    flex-grow: 1
 
   .bar-container
-    width: 100%
-    height: bar-height
-    border-radius: bar-height
-    float: widget-align
-    clear: both
-    background: rgba(#fff, .5)
-    position: absolute
-    margin-bottom: 5px
+    width: 200px
+    height: 14px
+    border: 1px solid rgba(0,0,0,0.5)
+    border-radius: 2px
+    box-sizing: border-box
+    background: transparent
+    flex-grow: 4
+    padding: 2px
 
   .bar
     height: bar-height
     float: widget-align
     transition: width .2s ease-in-out
+    color: rgba(0,0,0,0.75)
+    font-size: 7px
+    font-weight: 800
+    padding-left: 2px
+    box-sizing: border-box
 
   .bar:first-child
     if widget-align == left
-      border-radius: bar-height 0 0 bar-height
+      border-radius: 1px 0 0 1px
     else
-      border-radius: 0 bar-height bar-height 0
+      border-radius: 0 1px 1px 0
 
   .bar:last-child
     if widget-align == right
-      border-radius: bar-height 0 0 bar-height
+      border-radius: 1px 0 0 1px
     else
-      border-radius: 0 bar-height bar-height 0
+      border-radius: 0 1px 1px 0
 
   .bar-inactive
-    background: rgba(#0bf, .5)
+    background: rgba(#cdd7b6, 1)
 
   .bar-active
-    background: rgba(#fc0, .5)
+    background: rgba(#fbb829, 1)
 
   .bar-wired
-    background: rgba(#c00, .5)
+    background: rgba(#ff0066, 1)
 """
 
 
 render: -> """
   <div class="container">
     <div class="widget-title">Memory</div>
-    <table class="stats-container" width="100%">
-      <tr>
-        <td class="stat"><span class="wired"></span></td>
-        <td class="stat"><span class="active"></span></td>
-        <td class="stat"><span class="inactive"></span></td>
-        <td class="stat"><span class="free"></span></td>
-        <td class="stat"><span class="total"></span></td>
-      </tr>
-      <tr>
-        <td class="label">wired</td>
-        <td class="label">active</td>
-        <td class="label">inactive</td>
-        <td class="label">free</td>
-        <td class="label">total</td>
-      </tr>
-    </table>
     <div class="bar-container">
-      <div class="bar bar-wired"></div>
-      <div class="bar bar-active"></div>
-      <div class="bar bar-inactive"></div>
+      <div class="bar bar-wired">
+        <span class="wired"></span>
+      </div>
+      <div class="bar bar-active">
+        <span class="active"></span>
+      </div>
+      <div class="bar bar-inactive">
+        <span class="inactive"></span>
+      </div>
     </div>
   </div>
 """
