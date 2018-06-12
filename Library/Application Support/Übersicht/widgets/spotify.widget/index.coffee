@@ -78,8 +78,8 @@ style: """
   .wrapper
     // Position wrapper on the topbar
     position absolute
-    left 270px
-    height 21px
+    left 263px
+    height 22px
     width 200px
 
     // Font styles?
