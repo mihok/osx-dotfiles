@@ -80,7 +80,7 @@ style: """
     position absolute
     left 263px
     height 22px
-    width 200px
+    width 350px
 
     // Font styles?
     font-size 8pt
@@ -112,7 +112,7 @@ style: """
       line-height 9px
       margin-left 4px
       width 100%
-      max-width 180px
+      max-width 320px
       z-index 3
 
       .song-information

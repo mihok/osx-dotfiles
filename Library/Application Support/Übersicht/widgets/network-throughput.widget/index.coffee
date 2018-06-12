@@ -9,7 +9,7 @@ style: """
 
     // Position this where you want
     top 0
-    left 870px
+    left 1140px
     z-index 10
 
     // Statistics text settings
