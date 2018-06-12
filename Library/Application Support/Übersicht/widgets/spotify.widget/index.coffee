@@ -19,7 +19,7 @@ options =
   # Stick the widget in the corner? Set to *true* if you're using it with Sidebar widget, set to *false* if you'd like to give it some breathing room and a drop shadow.
   stickInCorner: false                  # true | false
 
-command: "osascript 'Playbox.widget/lib/Get Current Track.applescript'"
+command: "osascript 'spotify.widget/lib/track.applescript'"
 refreshFrequency: '300ms'
 
 style: """
@@ -64,9 +64,7 @@ style: """
   width auto
   min-width 0
   max-width 100%
-  # overflow hidden
   white-space nowrap
-  # background-color bgColor02
   font-family "Helvetica Neue"
   border none
   -webkit-backdrop-filter blurProperties
@@ -103,7 +101,7 @@ style: """
       height 14px
       margin 0
       background-color fColor05
-      background-image url(/Playbox.widget/lib/default.png)
+      background-image url(/spotify.widget/lib/default.png)
       background-size cover
       border 1px solid black
       z-index 2
@@ -168,30 +166,6 @@ render: () -> """
   </div>
   """
 
-# afterRender: (domEl) ->
-  # $.getScript "Playbox.widget/lib/jquery.animate-shadow-min.js"
-  # div = $(domEl)
-
-  # meta = div.find('.text')
-
-  # if @options.verticalPosition is 'center'
-  #   div.css('top', (screen.height - div.height())/2)
-  # if @options.horizontalPosition is 'center'
-  #   div.css('left', (screen.width - div.width())/2)
-
-  # if @options.metaPosition is 'inside' and @options.widgetVariant isnt 'small'
-  #   meta.delay(3000).fadeOut(500)
-
-  #   div.click(
-  #     =>
-  #       meta.stop(true,false).fadeIn(250).delay(3000).fadeOut(500)
-  #       if @options.stickInCorner is false
-  #         div.stop(true,true).animate({zoom: '0.99', boxShadow: '0 0 2px rgba(0,0,0,1.0)'}, 200, 'swing')
-  #         div.stop(true,true).animate({zoom: '1.0', boxShadow: '0 20px 40px 0px rgba(0,0,0,0.6)'}, 300, 'swing')
-  #         # div.find('.wrapper').stop(true,true).addClass('pushed')
-  #         # div.find('.wrapper').stop(true,true).removeClass('pushed')
-  #   )
-
 # Update the rendered output.
 update: (output, domEl) ->
 
@@ -243,7 +217,7 @@ update: (output, domEl) ->
       # return
     else if tArtwork is 'NA'
       artwork = div.find('.art')
-      artwork.css('background-image', 'url(/Playbox.widget/lib/default.png)')
+      artwork.css('background-image', 'url(/spotify.widget/lib/default.png)')
 
     if songChanged is 'true' and @options.metaPosition is 'inside' and @options.widgetVariant isnt 'small'
       div.find('.text').fadeIn(250).delay(3000).fadeOut(500)
