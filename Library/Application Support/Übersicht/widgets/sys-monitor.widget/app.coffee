@@ -46,6 +46,7 @@ update: (output, domEl) ->
 style: """
   top: 0
   left: 720px
+  z-index: 10
   height: 22px
 
   svg
