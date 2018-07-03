@@ -15,9 +15,13 @@
 alias tmux='tmux -2'
 
 # utility aliases
-
 alias ls='ls -G'
 alias grep='grep --colour=always'
+
+# utility functions
+dev() {
+  ssh -A dev$1-uswest1cdevc
+}
 
 # terminal options
 

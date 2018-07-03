@@ -11,7 +11,8 @@ style: """
 
   // Position this where you want
   top 0
-  left 400px
+  left 630px
+  z-index 10
 
   // Statistics text settings
   color #fff

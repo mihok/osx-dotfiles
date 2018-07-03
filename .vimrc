@@ -41,6 +41,9 @@ Plugin 'plasticboy/vim-markdown'
 " Go
 Plugin 'fatih/vim-go'
 
+"Ruby
+Plugin 'tpope/vim-rails'
+
 
 " UI 
 "

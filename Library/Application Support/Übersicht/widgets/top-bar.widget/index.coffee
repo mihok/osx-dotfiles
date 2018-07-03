@@ -62,10 +62,17 @@ render: -> """
 
 update: (output, domEl) ->
   outputLines = output.split "\n"
+  # outputUptime = outputLines[12].split(": ")
   outputUptime = outputLines[12].split(": ")[1]
+  outputUptimeArray = outputUptime.split(":")
 
-  computerUptimeHours = outputUptime.split(":")[0]
-  computerUptimeMinutes = outputUptime.split(":")[1]
+
+  if outputUptimeArray.length > 1
+    computerUptimeHours = outputUptimeArray[0]
+    computerUptimeMinutes = outputUptimeArray[1]
+  else
+    computerUptimeHours = 0
+    computerUptimeMinutes = Number.parseInt(outputUptimeArray[0])
 
   computerName = outputLines[8].split(": ")[1]
   computerVersion = outputLines[4].split(": ")[1]
