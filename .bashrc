@@ -18,11 +18,6 @@ alias tmux='tmux -2'
 alias ls='ls -G'
 alias grep='grep --colour=always'
 
-# utility functions
-dev() {
-  ssh -A dev$1-uswest1cdevc
-}
-
 # terminal options
 
 shopt -s histappend checkwinsize nocaseglob
@@ -31,7 +26,7 @@ shopt -s histappend checkwinsize nocaseglob
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@MIHOK-YELP: ${PWD}\007"'
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@MIHOK-CUE: ${PWD}\007"'
 
     # Show the currently running command in the terminal title:
     # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
@@ -45,7 +40,7 @@ xterm*|rxvt*)
                 # output them.
                 ;;
             *)
-                echo -ne "\033]0;${USER}@MIHOK-YELP: ${BASH_COMMAND}\007"
+                echo -ne "\033]0;${USER}@MIHOK-CUE: ${BASH_COMMAND}\007"
                 ;;
         esac
     }
