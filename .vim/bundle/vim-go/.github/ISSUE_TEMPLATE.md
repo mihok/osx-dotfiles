@@ -1,25 +1,50 @@
-### Behavior
+<!--
+Before filing an issue, please check if vim-go's help addresses your problem (see `:help go-troubleshooting`).
 
-Write here what's happening and what you're expecting instead of...
+Consider executing `:GoReportGitHubIssue` to populate much of this information automatically.
+-->
+### What did you do? (required: The issue will be **closed** when not provided)
 
-### Steps to reproduce:
+<!--
+If possible, please provide clear steps for reproducing the problem.
+-->
 
-Please create a reproducible case of your problem. If this step is
-not provided, the issue will be **closed**
+### What did you expect to happen?
 
-Re produce it with a minimal `vimrc` with all plugins disabled and
-only `vim-go` enabled:
+### What happened instead?
 
-1.
-2.
-3.
+### Configuration (**MUST** fill this out):
 
-### Configuration
+#### vim-go version:
 
-Add here your current configuration and additional information that might be
-useful, such as:
+####  `vimrc` you used to reproduce:
+<!--
+Use a *minimal* vimrc with other plugins disabled; do not link to a 2,000 line vimrc.
 
-* `vimrc` you used to reproduce
-* vim version:
-* vim-go version:
-* go version:
+If this is not provided or is obviously incomplete, the issue may be unceremoniously closed.
+-->
+<!-- vimrc -->
+<details><summary>vimrc</summary>
+
+```vim
+
+```
+</details>
+
+#### Vim version (first three lines from `:version`):
+<!-- :version -->
+
+#### Go version (`go version`):
+<!-- go version -->
+
+#### Go environment
+<details><summary><code>go env</code> Output:</summary><br><pre>
+<!-- go env -->
+
+</pre></details>
+
+#### gopls version
+<details><summary><code>gopls version</code> Output:</summary><br><pre>
+<!-- gopls version -->
+
+</pre></details>

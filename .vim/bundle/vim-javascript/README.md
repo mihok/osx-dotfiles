@@ -6,6 +6,12 @@ improved indentation.
 
 ## Installation
 
+### Install with native package manager
+
+      git clone https://github.com/pangloss/vim-javascript.git ~/.vim/pack/vim-javascript/start/vim-javascript
+
+since Vim 8.
+
 ### Install with [pathogen](https://github.com/tpope/vim-pathogen)
 
       git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
@@ -51,19 +57,21 @@ Default Value: 0
 
 -----------------
 
-```
-set foldmethod=syntax
+```vim
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 ```
 
-Enables code folding based on our syntax file.
+Enables code folding for javascript based on our syntax file.
 
-Please note this can have a dramatic effect on performance and because it is a
-global vim option, we do not set it ourselves.
+Please note this can have a dramatic effect on performance.
 
 
 ## Concealing Characters
 
-You can customize concealing characters, if your font provides the character you want, by defining one or more of the following
+You can customize concealing characters, if your font provides the glyph you want, by defining one or more of the following
 variables:
 
     let g:javascript_conceal_function             = "ƒ"
@@ -92,9 +100,14 @@ OR if you wish to toggle concealing you may wish to bind a command such as the f
 ## Indentation Specific
 
 * `:h cino-:`
+* `:h cino-=`
 * `:h cino-star`
 * `:h cino-(`
 * `:h cino-w`
+* `:h cino-W`
+* `:h cino-U`
+* `:h cino-m`
+* `:h cino-M`
 * `:h 'indentkeys'`
 
 ## Contributing

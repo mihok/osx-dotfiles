@@ -3,6 +3,51 @@ CHANGELOG
 ================================================================================
 This project is using [Semantic Versioning 2.0.0](http://semver.org/)
 
+- v0.11.0
+  - Added Docker filetypes support (PR #228) (@IngoHeimbach)
+  - Added Swift filetypes support (PR #252) (@motform)
+  - Added Elixir filetypes support (PR #244) (@akoutmos)
+  - Added configuration for 'prePadding' (fixes #231)
+  - Added support for `vue` filetype extensions out-of-the-box (fixes #235)
+  - Added configuration for 'DevIconsArtifactFix' (#225)
+  - Added leftrelease override to work on single mouse click (PR #246) (@Matrix86)
+  - Added Travis CI with vim linting (PR #236) (@kutsan)
+  - Fixed Vim-Startify no longer working "out of the box" (#233)
+  - Fixed Denite information being discarded (fixes #216) (PR #229 @carlitux)
+  - Fixed inconsistent spacing between folder and file glyphs (fixes #213)
+  - Updated variable declarations and refactored into set function (PR #237) (@kutsan)
+  - Updated plugin initialization functions to autoload on demand (PR #238) (@kutsan)
+  - Updated documentation and refactored massively to Wiki (PR #232) (@kutsan)
+  - Updated `vim` glyph to better glyph (fixes #234)
+  - Updated Readme screenshots and badges
+- v0.10.0
+  - Added support for symlink directories (PR #221) (@mhartington)
+  - Added missing Denite config in readme (PR #217, fixes #205) (@mohamadLy)
+  - Fixed NERDTree folder open bug with cascade setting (fixes #194)
+  - Fixed potential issue with Vim-Airline (PR #219) (@chrisbra)
+  - Fixed readme.md (removed duplicate section) (PR #222) (@thehappydinoa)
+  - Updated Vim-Airline Repo link in readme (PR #220) (@chrisbra)
+- v0.9.3
+  - Added `tsx` filetype (PR #210) (@dustinblackman)
+  - Updated links of [deprecated kien/ctrlp](https://github.com/kien/ctrlp.vim) to [active ctrlp fork](https://github.com/ctrlpvim/ctrlp.vim) (PR #211) (@haxorjim)
+  - Updated MacOS and Windows `guifont` examples with alternate format (fixes #208)
+- v0.9.2
+  - Added `yaml` filetype (PR #207) (@jpoppe)
+  - Added mention of `vim-workspace` as an integrated plugin (PR #206) (@bagrat)
+  - Fixed NERDTree keymap `U` open folder icon bug (fixes #189)
+- v0.9.1
+  - Added `sass` filetype (PR #202) (@toastal)
+  - Fixed NERDTree open/close folder icon bugs (fixes #194)
+  - Fixed airline conflict with file enconding `skip_expected_string` feature (fixes #203)
+  - Fixed possible glyph artifacts on open/close folder glyphs
+- v0.9.0
+  - Added support for [Denite](https://github.com/Shougo/denite.nvim) (PR #191) (@0phoff)
+  - Added symbol for byte order marker (BOM) (utf-8) (PR #199) (@Snaptags)
+  - Added support for `.zshrc`, `.vimrc`, `pp` (Puppet classes extensions), and `Vagrantfile` filetypes (enhancement #200) (@kiyanwang)
+  - Added support for `h`, `hpp`, `hxx` (C/C++ header filetype extensions) (enhancement #190)
+  - Added support for `bash`, `zsh`, `ksh`, `csh`, `awk`, `ps1` (script extensions) (enhancement #196)
+  - Added support for `rmd` (R Markdown) (partially fixes #195)
+  - Fixes opened folders titles padding/spacing offset (fixes #197)
 - v0.8.6
   - Added support for vimfiler explorer mode (fixes #171)
   - Added `doc/tags` to `.gitignore` (PR #182) (@doronbehar)

@@ -1,0 +1,1 @@
+../../../colors/monokai-mihok.vim

@@ -2,10 +2,10 @@
 " Language: Dockerfile
 " Maintainer: Eugene Kalinin
 " Latest Revision: 11 September 2013
-" Source: http://docs.docker.io/en/latest/use/builder/
+" Source: https://docs.docker.com/compose/
 
-if exists("b:current_syntax")
-  finish
+if !exists('main_syntax')
+    let main_syntax = 'yaml'
 endif
 
 " case sensitivity (fix #17)
@@ -16,7 +16,7 @@ syn keyword dockercomposeKeywords build context dockerfile args cap_add cap_drop
 syn keyword dockercomposeKeywords command cgroup_parent container_name devices depends_on
 syn keyword dockercomposeKeywords dns dns_search tmpfs entrypoint env_file environment
 syn keyword dockercomposeKeywords expose extends extends external_links extra_hosts
-syn keyword dockercomposeKeywords group_add image isolation labels links 
+syn keyword dockercomposeKeywords group_add image isolation labels links
 syn keyword dockercomposeKeywords log_opt net network_mode networks aliases
 syn keyword dockercomposeKeywords ipv4_address ipv6_address link_local_ips pid ports
 syn keyword dockercomposeKeywords security_opt stop_signal ulimits volumes volume_driver
@@ -24,7 +24,7 @@ syn keyword dockercomposeKeywords volumes_from cpu_shares cpu_quota cpuset domai
 syn keyword dockercomposeKeywords ipc mac_address mem_limit memswap_limit oom_score_adj privileged
 syn keyword dockercomposeKeywords read_only restart shm_size stdin_open tty user working_dir
 syn keyword dockercomposeKeywords healthcheck test interval timeout retries disable sysctls
-syn keyword dockercomposeKeywords userns_mode
+syn keyword dockercomposeKeywords userns_mode secrets
 "" Volume configuration reference
 syn keyword dockercomposeKeywords driver driver_opts external labels
 "" Network configuration reference
@@ -78,8 +78,3 @@ hi link dockercomposeTodo      Todo
 hi link bashStatement       Function
 
 let b:current_syntax = "dockercompose"
-
-set commentstring=#\ %s
-
-" Enable automatic comment insertion
-setlocal fo+=cro

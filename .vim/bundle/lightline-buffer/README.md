@@ -1,18 +1,22 @@
-# lightline-buffer
+# lightline-buffer &middot; [![Build Status](https://travis-ci.org/taohexxx/lightline-buffer.svg?branch=master)](https://travis-ci.org/taohexxx/lightline-buffer) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 A buffer plugin for [lightline.vim](https://github.com/itchyny/lightline.vim)
 
-![lightline-buffer](http://taohex.github.io/lightline-buffer/images/lightline-buffer.png)
+![lightline-buffer](http://taohexxx.github.io/lightline-buffer/images/lightline-buffer.png)
 
 ## Main Features
 
-*	Show tab info and buffer info in tabline
+*	:star2: Clickable buffer switching
 
-*	Support using left / right arrow key for quick switching buffer
+*	:page_with_curl: Show file type icon with perfect UTF-8 support
 
-*	Auto-folding for long buffer name
+*	:pencil2: Show tab info and buffer info in tabline
 
-*	Scrollable when tabline length overflow screen
+*	:left_right_arrow: Support using left / right arrow key for quickly switching buffer
+
+*	:mag: Auto-folding for long buffer name
+
+*	:triangular_ruler: Scrollable when tabline length overflow screen
 
 ## Usage
 
@@ -23,38 +27,46 @@ A buffer plugin for [lightline.vim](https://github.com/itchyny/lightline.vim)
 	If you are using [Dein.vim](https://github.com/Shougo/dein.vim) (recommended)
 
 	```vim
-	call dein#add('taohex/lightline-buffer')
+	call dein#add('taohexxx/lightline-buffer')
 	```
 
 	If you are using [NeoBundle](https://github.com/Shougo/neobundle.vim)
 
 	```vim
-	NeoBundle 'taohex/lightline-buffer'
+	NeoBundle 'taohexxx/lightline-buffer'
 	```
 
 3.	Add this block to your init.vim (for neovim) or .vimrc (for vim)
 
 	```vim
-	set showtabline=2	" always show tabline
+	set hidden  " allow buffer switching without saving
+	set showtabline=2  " always show tabline
 
 	" use lightline-buffer in lightline
 	let g:lightline = {
-		\ 'tabline': {
-			\ 'left': [ [ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-			\ 'right': [ [ 'close' ], ],
-			\ },
-		\ 'component_expand': {
-			\ 'buffercurrent': 'lightline#buffer#buffercurrent2',
-			\ },
-		\ 'component_type': {
-			\ 'buffercurrent': 'tabsel',
-			\ },
-		\ 'component_function': {
-			\ 'bufferbefore': 'lightline#buffer#bufferbefore',
-			\ 'bufferafter': 'lightline#buffer#bufferafter',
-			\ 'bufferinfo': 'lightline#buffer#bufferinfo',
-			\ },
-		\ }
+	    \ 'tabline': {
+	    \   'left': [ [ 'bufferinfo' ],
+	    \             [ 'separator' ],
+	    \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+	    \   'right': [ [ 'close' ], ],
+	    \ },
+	    \ 'component_expand': {
+	    \   'buffercurrent': 'lightline#buffer#buffercurrent',
+	    \   'bufferbefore': 'lightline#buffer#bufferbefore',
+	    \   'bufferafter': 'lightline#buffer#bufferafter',
+	    \ },
+	    \ 'component_type': {
+	    \   'buffercurrent': 'tabsel',
+	    \   'bufferbefore': 'raw',
+	    \   'bufferafter': 'raw',
+	    \ },
+	    \ 'component_function': {
+	    \   'bufferinfo': 'lightline#buffer#bufferinfo',
+	    \ },
+	    \ 'component': {
+	    \   'separator': '',
+	    \ },
+	    \ }
 
 	" remap arrow keys
 	nnoremap <Left> :bprev<CR>
@@ -71,22 +83,42 @@ A buffer plugin for [lightline.vim](https://github.com/itchyny/lightline.vim)
 	let g:lightline_buffer_expand_right_icon = ' ▶'
 	let g:lightline_buffer_active_buffer_left_icon = ''
 	let g:lightline_buffer_active_buffer_right_icon = ''
-	let g:lightline_buffer_separator_icon = ' '
+	let g:lightline_buffer_separator_icon = '  '
+
+	" enable devicons, only support utf-8
+	" require <https://github.com/ryanoasis/vim-devicons>
+	let g:lightline_buffer_enable_devicons = 1
 
 	" lightline-buffer function settings
 	let g:lightline_buffer_show_bufnr = 1
-	let g:lightline_buffer_rotate = 0
+
+	" :help filename-modifiers
 	let g:lightline_buffer_fname_mod = ':t'
+
+	" hide buffer list
 	let g:lightline_buffer_excludes = ['vimfiler']
 
+	" max file name length
 	let g:lightline_buffer_maxflen = 30
+
+	" max file extension length
 	let g:lightline_buffer_maxfextlen = 3
+
+	" min file name length
 	let g:lightline_buffer_minflen = 16
+
+	" min file extension length
 	let g:lightline_buffer_minfextlen = 3
+
+	" reserve length for other component (e.g. info, close)
 	let g:lightline_buffer_reservelen = 20
 	```
 
+4.	Show file type icons
+
+	Install [VimDevIcons](https://github.com/ryanoasis/vim-devicons) in your favorite vim plugin manager
+
 ## Examples
 
-[Navim](https://github.com/taohex/navim)
+[Navim](https://github.com/taohexxx/navim)
 

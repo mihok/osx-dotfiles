@@ -1,0 +1,329 @@
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinscopedecls=public,protected,private
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=80
+setlocal comments=s1:/*,mb:*,ex:*/
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'css'
+setlocal filetype=css
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=MyFoldText()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=^\\s*@import\\s\\+\\%(url(\\)\\=
+setlocal includeexpr=
+setlocal indentexpr=GetCSSIndent()
+setlocal indentkeys=0{,0},!^F,o,O
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,-
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal listchars=
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=6
+setlocal omnifunc=csscomplete#CompleteCSS
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=yes
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=%{lightline#link()}%#LightlineLeft_active_0#%(\ %{LightlineMode()}\ %)%{LightlineMode()!=#\"\"&&((&paste))?\"\":\"\"}%(\ %{&paste?\"PASTE\":\"\"}\ %)%#LightlineLeft_active_0_1#%#LightlineLeft_active_1#%(\ %{LightlineFugitive()}\ %)%{LightlineFugitive()!=#\"\"&&(((&filetype!=\"help\"&&\ &readonly))||LightlineFilename()!=#\"\"||((&filetype!=\"help\"&&(&modified||!&modifiable))))?\"\":\"\"}%(\ %{&filetype==\"help\"?\"\":&readonly?\"⭤\":\"\"}\ %)%{((&filetype!=\"help\"&&\ &readonly))&&(LightlineFilename()!=#\"\"||((&filetype!=\"help\"&&(&modified||!&modifiable))))?\"\":\"\"}%(\ %{LightlineFilename()}\ %)%{LightlineFilename()!=#\"\"&&(((&filetype!=\"help\"&&(&modified||!&modifiable))))?\"\":\"\"}%(\ %{&filetype==\"help\"?\"\":&modified?\"+\":&modifiable?\"\":\"-\"}\ %)%#LightlineLeft_active_1_2#%#LightlineMiddle_active#%=%#LightlineRight_active_2_3#%#LightlineRight_active_2#%(\ %{LightlineFileformat()}\ %)%{LightlineFileformat()!=#\"\"&&(LightlineFileencoding()!=#\"\"||LightlineFiletype()!=#\"\")?\"\":\"\"}%(\ %{LightlineFileencoding()}\ %)%{LightlineFileencoding()!=#\"\"&&(LightlineFiletype()!=#\"\")?\"\":\"\"}%(\ %{LightlineFiletype()}\ %)%#LightlineRight_active_1_2#%#LightlineRight_active_1#%(\ %3p%%\ %)%#LightlineRight_active_0_1#%#LightlineRight_active_0#%(\ %3l:%-2c\ %)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'css'
+setlocal syntax=css
+endif
+setlocal tabstop=2
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal thesaurusfunc=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal virtualedit=
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+109
+normal! zo
+117
+normal! zo
+209
+normal! zo
+219
+normal! zo
+224
+normal! zo
+229
+normal! zo
+234
+normal! zo
+239
+normal! zo
+244
+normal! zo
+257
+normal! zo
+263
+normal! zo
+267
+normal! zo
+271
+normal! zo
+279
+normal! zo
+286
+normal! zo
+298
+normal! zo
+303
+normal! zo
+315
+normal! zo
+319
+normal! zo
+323
+normal! zo
+332
+normal! zo
+335
+normal! zo
+339
+normal! zo
+346
+normal! zo
+352
+normal! zo
+357
+normal! zo
+363
+normal! zo
+373
+normal! zo
+377
+normal! zo
+383
+normal! zo
+387
+normal! zo
+393
+normal! zo
+397
+normal! zo
+401
+normal! zo
+410
+normal! zo
+415
+normal! zo
+419
+normal! zo
+423
+normal! zo
+428
+normal! zo
+431
+normal! zo
+436
+normal! zo
+440
+normal! zo
+445
+normal! zo
+450
+normal! zo
+454
+normal! zo
+459
+normal! zo
+465
+normal! zo
+470
+normal! zo
+475
+normal! zo
+480
+normal! zo
+484
+normal! zo
+488
+normal! zo
+492
+normal! zo
+496
+normal! zo
+502
+normal! zo
+507
+normal! zo
+516
+normal! zo
+521
+normal! zo
+522
+normal! zo
+533
+normal! zo
+541
+normal! zo
+546
+normal! zo
+557
+normal! zo
+565
+normal! zo
+570
+normal! zo
+582
+normal! zo
+589
+normal! zo
+593
+normal! zo
+598
+normal! zo
+612
+normal! zo
+620
+normal! zo
+624
+normal! zo
+629
+normal! zo
+640
+normal! zo
+648
+normal! zo
+654
+normal! zo
+664
+normal! zo
+665
+normal! zo
+669
+normal! zo
+673
+normal! zo
+679
+normal! zo
+680
+normal! zo
+684
+normal! zo
+688
+normal! zo
+694
+normal! zo
+695
+normal! zo
+699
+normal! zo
+703
+normal! zo
+709
+normal! zo
+710
+normal! zo
+714
+normal! zo
+718
+normal! zo
+724
+normal! zo
+725
+normal! zo
+729
+normal! zo
+733
+normal! zo
+let s:l = 497 - ((40 * winheight(0) + 32) / 64)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 497
+normal! 0
+let &g:so = s:so_save | let &g:siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

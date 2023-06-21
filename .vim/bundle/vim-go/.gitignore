@@ -1,6 +1,11 @@
-doc/tags
+*.pyc
 .DS_Store
-
-# Test specific files
-FAILED
-test.log
+/.bash_history
+/.cache
+/.config
+/.coverage.covimerage
+/.local
+/.viminfo
+/coverage.xml
+/doc/tags
+/issues

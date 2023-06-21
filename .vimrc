@@ -28,6 +28,7 @@ Plugin 'reewr/vim-monokai-phoenix'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars' " handlebars
 Plugin 'mxw/vim-jsx' " jsx
+Plugin 'pantharshit00/vim-prisma' " prisma
 
 " Dockerfile
 Plugin 'ekalinin/Dockerfile.vim'
@@ -41,21 +42,32 @@ Plugin 'plasticboy/vim-markdown'
 " Go
 Plugin 'fatih/vim-go'
 
-"Ruby
+" Ruby
 Plugin 'tpope/vim-rails'
+
+" Dart
+Plugin 'dart-lang/dart-vim-plugin'
+
+" Nix
+Plugin 'LnL7/vim-nix'
+
+" D2
+Plugin 'terrastruct/d2-vim'
 
 
 " UI 
 "
 " Bottom line
 Plugin 'itchyny/lightline.vim'
-Plugin 'taohex/lightline-buffer' " buffer bar
+" Plugin 'taohexxx/lightline-buffer' " buffer bar
+Plugin 'mengelbrecht/lightline-bufferline'
 
 " Syntax checker
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'neoclide/coc.nvim'
 
 " Autocomplete
-Plugin 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/neocomplete.vim'
 
 " File browser
 Plugin 'scrooloose/nerdtree'
@@ -65,6 +77,9 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Save views
 Plugin 'vim-scripts/restore_view.vim'
+
+" Color Table
+Plugin 'guns/xterm-color-table.vim'
 
 
 " OTHER
@@ -82,8 +97,9 @@ filetype plugin indent on    " required
 
 
 " Settings
+set backspace=indent,eol,start
 set encoding=utf8       " UTF-8
-set guifont=Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline\ Nerd\ Font\ Complete\ Mono\ 13
+set guifont=Meslo\ LG\ S\ DZ\ Regular\ Nerd\ Font\ Complete\ Mono
 set hidden              " hidden buffers
 set number              " line numbers
 set numberwidth=6       " line number width
@@ -95,6 +111,7 @@ set shiftwidth=2        " size of an indent
 set expandtab           " use spaces for tabs 
 "set fillchars=vert:\│   " solid line slipt between buffers
 set showtabline=2	" always show tabline
+setlocal synmaxcol=200
 
 " Buffer
 nnoremap <Left> :bprev<CR>
@@ -165,7 +182,11 @@ let g:NERDTreeSyntaxEnabledExtensions = ['js', 'jsx', 'json', 'py', 'go', 'cs', 
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
+let g:NERDTreeIgnore=['\.swp$']
+
+
 " Lightline
+" \   'left': [ [ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
 set laststatus=2        " status bar (Lightline setting)
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
@@ -177,13 +198,14 @@ let g:lightline = {
       \              [ 'fileformat', 'fileencoding', 'filetype' ] ],
       \ },
       \ 'tabline': {
-      \   'left': [ [ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-      \   'right': [ [ 'close' ], ],
+      \   'left': [ [ 'bufferslogo', 'buffers' ], ],
+      \   'right': [ ],
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \   'bufferslogo': '',
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightlineFugitive',
@@ -194,27 +216,38 @@ let g:lightline = {
       \   'mode': 'LightlineMode',
       \   'bufferbefore': 'lightline#buffer#bufferbefore',
       \   'bufferafter': 'lightline#buffer#bufferafter',
-      \   'bufferinfo': 'lightline#buffer#bufferinfo'
+      \   'bufferinfo': 'lightline#buffer#bufferinfo',
       \ },
       \ 'component_expand': {
       \   'syntastic': 'SyntasticStatuslineFlag',
-      \   'buffercurrent': 'lightline#buffer#buffercurrent2'
+      \   'buffers': 'lightline#bufferline#buffers',
+      \   'buffercurrent': 'lightline#buffer#buffercurrent2',
       \ },
       \ 'component_type': {
       \   'syntastic': 'error',
-      \   'buffercurrent': 'tabsel'
+      \   'buffercurrent': 'tabsel',
+      \   'buffers': 'tabsel',
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
+      \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
+set fillchars+=vert:│
+
 "      \ 'separator': { 'left': ' » ', 'right': ' « '},
 "      \ 'subseparator': { 'left': ' » ', 'right': ' « '}
+
+set noshowmode
+
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#enable_nerdfont = 1
+set guioptions-=e
+set showtabline=2
 
 let g:lightline_buffer_logo = ' '
 let g:lightline_buffer_readonly_icon = ''
@@ -360,4 +393,165 @@ augroup END
 
 " Theme
 syntax on
-colorscheme monokai-phoenix
+colorscheme monokai-mihok
+
+if !exists("*DeleteHiddenBuffers") " Clear all hidden buffers when running 
+    function DeleteHiddenBuffers() " Vim with the 'hidden' option
+        let tpbl=[]
+        call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+        for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+            silent execute 'bwipeout' buf
+        endfor
+    endfunction
+endif
+command! DeleteHiddenBuffers call DeleteHiddenBuffers();
+
+" CoC
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>

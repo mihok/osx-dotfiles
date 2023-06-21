@@ -1,0 +1,707 @@
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinscopedecls=public,protected,private
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=80
+setlocal comments=s1:/*,mb:*,ex:*/
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal cursorlineopt=both
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'css'
+setlocal filetype=css
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=syntax
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=MyFoldText()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=^\\s*@import\\s\\+\\%(url(\\)\\=
+setlocal includeexpr=
+setlocal indentexpr=GetCSSIndent()
+setlocal indentkeys=0{,0},!^F,o,O
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,-
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal listchars=
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=6
+setlocal omnifunc=csscomplete#CompleteCSS
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal scrolloff=-1
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal showbreak=
+setlocal sidescrolloff=-1
+setlocal signcolumn=yes
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal spelloptions=
+setlocal statusline=%{lightline#link()}%#LightlineLeft_inactive_0#%(\ %{LightlineFilename()}\ %)%#LightlineLeft_inactive_0_1#%#LightlineMiddle_inactive#%=%#LightlineRight_inactive_1_2#%#LightlineRight_inactive_1#%(\ %3p%%\ %)%#LightlineRight_inactive_0_1#%#LightlineRight_inactive_0#%(\ %3l:%-2c\ %)
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'css'
+setlocal syntax=css
+endif
+setlocal tabstop=2
+setlocal tagcase=
+setlocal tagfunc=
+setlocal tags=
+setlocal termwinkey=
+setlocal termwinscroll=10000
+setlocal termwinsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal thesaurusfunc=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal varsofttabstop=
+setlocal vartabstop=
+setlocal virtualedit=
+setlocal wincolor=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+117
+normal! zo
+118
+normal! zo
+122
+normal! zo
+130
+normal! zo
+137
+normal! zo
+141
+normal! zo
+148
+normal! zo
+157
+normal! zo
+166
+normal! zo
+171
+normal! zo
+176
+normal! zo
+207
+normal! zo
+212
+normal! zo
+220
+normal! zo
+227
+normal! zo
+240
+normal! zo
+245
+normal! zo
+253
+normal! zo
+257
+normal! zo
+266
+normal! zo
+270
+normal! zo
+274
+normal! zo
+281
+normal! zo
+286
+normal! zo
+297
+normal! zo
+304
+normal! zo
+308
+normal! zo
+312
+normal! zo
+316
+normal! zo
+320
+normal! zo
+329
+normal! zo
+333
+normal! zo
+337
+normal! zo
+342
+normal! zo
+346
+normal! zo
+355
+normal! zo
+360
+normal! zo
+365
+normal! zo
+369
+normal! zo
+380
+normal! zo
+385
+normal! zo
+390
+normal! zo
+395
+normal! zo
+399
+normal! zo
+403
+normal! zo
+407
+normal! zo
+411
+normal! zo
+416
+normal! zo
+425
+normal! zo
+176
+normal! zo
+186
+normal! zo
+191
+normal! zo
+197
+normal! zo
+207
+normal! zo
+218
+normal! zo
+223
+normal! zo
+238
+normal! zo
+251
+normal! zo
+256
+normal! zo
+263
+normal! zo
+267
+normal! zo
+276
+normal! zo
+280
+normal! zo
+284
+normal! zo
+301
+normal! zo
+307
+normal! zo
+314
+normal! zo
+318
+normal! zo
+322
+normal! zo
+326
+normal! zo
+330
+normal! zo
+339
+normal! zo
+343
+normal! zo
+347
+normal! zo
+352
+normal! zo
+356
+normal! zo
+361
+normal! zo
+365
+normal! zo
+375
+normal! zo
+379
+normal! zo
+384
+normal! zo
+390
+normal! zo
+395
+normal! zo
+400
+normal! zo
+409
+normal! zo
+413
+normal! zo
+417
+normal! zo
+421
+normal! zo
+426
+normal! zo
+435
+normal! zo
+207
+normal! zo
+220
+normal! zo
+236
+normal! zo
+244
+normal! zo
+251
+normal! zo
+269
+normal! zo
+276
+normal! zo
+280
+normal! zo
+289
+normal! zo
+293
+normal! zo
+297
+normal! zo
+304
+normal! zo
+309
+normal! zo
+314
+normal! zo
+320
+normal! zo
+331
+normal! zo
+335
+normal! zo
+339
+normal! zo
+343
+normal! zo
+352
+normal! zo
+356
+normal! zo
+360
+normal! zo
+365
+normal! zo
+369
+normal! zo
+378
+normal! zo
+397
+normal! zo
+403
+normal! zo
+408
+normal! zo
+413
+normal! zo
+422
+normal! zo
+426
+normal! zo
+430
+normal! zo
+434
+normal! zo
+448
+normal! zo
+220
+normal! zo
+233
+normal! zo
+244
+normal! zo
+249
+normal! zo
+257
+normal! zo
+277
+normal! zo
+282
+normal! zo
+289
+normal! zo
+293
+normal! zo
+302
+normal! zo
+317
+normal! zo
+322
+normal! zo
+333
+normal! zo
+348
+normal! zo
+352
+normal! zo
+356
+normal! zo
+365
+normal! zo
+369
+normal! zo
+373
+normal! zo
+378
+normal! zo
+382
+normal! zo
+387
+normal! zo
+391
+normal! zo
+416
+normal! zo
+421
+normal! zo
+426
+normal! zo
+431
+normal! zo
+435
+normal! zo
+443
+normal! zo
+447
+normal! zo
+452
+normal! zo
+461
+normal! zo
+232
+normal! zo
+242
+normal! zo
+253
+normal! zo
+258
+normal! zo
+266
+normal! zo
+273
+normal! zo
+286
+normal! zo
+298
+normal! zo
+302
+normal! zo
+311
+normal! zo
+315
+normal! zo
+326
+normal! zo
+331
+normal! zo
+336
+normal! zo
+342
+normal! zo
+349
+normal! zo
+353
+normal! zo
+357
+normal! zo
+361
+normal! zo
+365
+normal! zo
+378
+normal! zo
+382
+normal! zo
+387
+normal! zo
+391
+normal! zo
+400
+normal! zo
+425
+normal! zo
+430
+normal! zo
+435
+normal! zo
+440
+normal! zo
+448
+normal! zo
+452
+normal! zo
+456
+normal! zo
+461
+normal! zo
+242
+normal! zo
+256
+normal! zo
+261
+normal! zo
+265
+normal! zo
+273
+normal! zo
+280
+normal! zo
+292
+normal! zo
+297
+normal! zo
+307
+normal! zo
+311
+normal! zo
+320
+normal! zo
+324
+normal! zo
+328
+normal! zo
+335
+normal! zo
+341
+normal! zo
+346
+normal! zo
+352
+normal! zo
+359
+normal! zo
+363
+normal! zo
+367
+normal! zo
+371
+normal! zo
+375
+normal! zo
+384
+normal! zo
+397
+normal! zo
+406
+normal! zo
+415
+normal! zo
+420
+normal! zo
+429
+normal! zo
+435
+normal! zo
+440
+normal! zo
+445
+normal! zo
+450
+normal! zo
+471
+normal! zo
+480
+normal! zo
+265
+normal! zo
+273
+normal! zo
+280
+normal! zo
+292
+normal! zo
+297
+normal! zo
+307
+normal! zo
+311
+normal! zo
+320
+normal! zo
+324
+normal! zo
+328
+normal! zo
+335
+normal! zo
+341
+normal! zo
+346
+normal! zo
+352
+normal! zo
+359
+normal! zo
+363
+normal! zo
+367
+normal! zo
+371
+normal! zo
+375
+normal! zo
+384
+normal! zo
+389
+normal! zo
+393
+normal! zo
+397
+normal! zo
+402
+normal! zo
+406
+normal! zo
+411
+normal! zo
+415
+normal! zo
+420
+normal! zo
+425
+normal! zo
+429
+normal! zo
+434
+normal! zo
+440
+normal! zo
+445
+normal! zo
+450
+normal! zo
+455
+normal! zo
+459
+normal! zo
+463
+normal! zo
+467
+normal! zo
+471
+normal! zo
+476
+normal! zo
+485
+normal! zo
+389
+normal! zo
+393
+normal! zo
+397
+normal! zo
+402
+normal! zo
+406
+normal! zo
+411
+normal! zo
+415
+normal! zo
+420
+normal! zo
+425
+normal! zo
+429
+normal! zo
+434
+normal! zo
+440
+normal! zo
+445
+normal! zo
+450
+normal! zo
+455
+normal! zo
+459
+normal! zo
+463
+normal! zo
+467
+normal! zo
+471
+normal! zo
+476
+normal! zo
+485
+normal! zo
+let s:l = 386 - ((36 * winheight(0) + 25) / 51)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 386
+normal! 019|
+let &g:so = s:so_save | let &g:siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :
